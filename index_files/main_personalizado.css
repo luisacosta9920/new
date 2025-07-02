@@ -1,0 +1,133 @@
+/* MAIN PERSONALIZADO */
+
+.main-color{color:#E42420 !important}
+a.main-color:hover{color: #4a4a4a !important;}
+.main-background, #boton-lateral-cuenta, .red-background, #principal-perfil #enviar_pass, #principal-perfil #enviar, #principal-perfil .enviar2, #principal-perfil .enviar-nuevo{background: #E42420 !important;}
+#mensaje-personalizado-principio{font-family: "Montserrat",sans-serif;font-size: 13px;line-height: 23px;text-align: center;padding: 10px 0px; background:#f5f5f5; color:#858686;}
+#mensaje-personalizado-principio #envio-gratis-ok{padding-right: 10px;}
+#logo {max-width: 352px; padding-top: 0px; width: 120%;}
+#header-container {height: 145px;}
+#info-header {padding-top: 28px;}
+#logo-footer {width: 250px; margin: 0; padding: 0;}
+.red-background{background: #E42420 !important}
+#boton-lateral-cuenta, #principal-perfil #enviar, #principal-perfil #enviar_pass {background-color: #E42420;}
+.sprite-icono_telefono_header {width: 43px;height: 41px;background-position: -250px -62px}
+
+
+
+/*Color principal del cliente #E42420*/
+
+.link-acciones-historial-pedido{background: #E42420;}
+.selectboxit-list > .selectboxit-focus > .selectboxit-option-anchor{background: #E42420;}
+#aceptar-condiciones a {color: #E42420;}
+#paginacion-familia span, #paginacion-familia-top span {color: #E42420; border: 1px solid #E42420;}	
+.catalogo-sidebar h4 span, .catalogo-sidebar h5 span{ color: #E42420;}    
+#boton-seguir-comprando a { color: #E42420;border: 2px solid #E42420;}
+#boton-continuar {background: #E42420;}
+#warp-migas-de-pan ul li a:hover{color: #E42420;}
+.red, .red a, #otros-servicios ul li a, #numero-telefono,  #nav-ayuda ul li a, .detalles a, #container-copyright a:hover, .intro-txt a, #envio-gratis, #envio-gratis-ok, #envio-gratis-carrito, #envio-gratis-ok-carrito{color:#E42420}
+#nav-container, .add-producto, #buscar_avanzado, #button-envio-aviso, .paginacion-actual span, #boton_carrito_pop{background:#E42420 !important; }
+.btn-product-list-buy {background-image: url("../img/icono_carrito_producto.png") !important;background-position: 23px 7px !important;background-repeat: no-repeat !important;background-color:#E42420;border:1px solid #E42420;}
+.btn-product-list-eye{border: 1px solid #E42420;}
+a.btn-product-list-eye{color:#E42420 !important;}
+#submenu-productos li a:hover, #principal-login #enviar, #submit-contacto{background:#E42420;}
+.button-compra {background-color:#E42420 ;}
+#boton-editar-direccion, #principal-login .boton-enviar, #principal-login #enviar_pass, #ayuda-header-red, .owl-theme .owl-controls .owl-page span{background:#E42420 !important;}
+ul.listado-pdf a{color:#E42420;}
+#ayuda-ficha-producto span:hover {color:#E42420;}
+ul.nav li.nivel1:hover{background-color:#4a4a4a !important; color:#ffffff !important;}
+.td-descripcion-product-group-list a, .name-product-list a, .name-product-list-grup a {color:#E42420 !important;}
+#principal-login #enviar, #principal-login .enviar2, #principal-login .enviar-nuevo {background-color:#E42420 !important;}
+.disponibilidad-container span {color:#E42420 !important;}
+.social-contacto a{color:#E42420}
+#numero-ayuda-404{color:#E42420;}
+.porcentaje-oferta, .cantidad-rebaja-ficha-producto-grande {display: none}
+
+
+/*Color titulo sugerencias*/
+.title-sugerencias-productos{background:#E42420 !important;}
+/*Fin Color titulo sugerencias*/
+
+
+/*Colores Hover*/
+
+#info-top_bar a:hover{color:#E42420;}
+#info-header-bloque-tres #info-perfil p a:hover{color:#4a4a4a !important;}
+#lost-password a:hover:{color:#E42420;}
+
+/*Fin Colores Hover*/
+
+
+/*Enviar a un amigo*/
+
+header#enviar-amigo{background: #E42420;}
+#form-enviar-amigo a{color:#E42420; }
+#form-enviar-amigo input[type="submit"]{background:#E42420;}
+
+/*Fin Enviar a un amigo*/
+
+
+/*Principio colores sticky el texto en blanco*/
+
+#usuario-cesta-sticky .red, #usuario-cesta-sticky .red a{color:#fefefe !important;}
+#usuario-cesta-sticky .red:hover, #usuario-cesta-sticky .red a:hover{color:#E42420 !important;}
+
+/*Fin colores sticky*/
+
+
+/*Color botón ancla*/
+#scroll-to-top{background:#E42420;}
+/*Fin Color botón ancla*/
+
+
+
+/*Color menú movil*/
+#menu{background:#E42420;}
+/*Fin Color menú movil*/
+
+/*Principio colores buscador avanzado.02*/
+
+#input-filtro-full-busqueda2-submit input{background-color:#E42420;}
+#productos-filtro-busqueda-02-container p span{color:#E42420 !important;}
+li.ui-menu-item a .box-pro-search .box-pro-search-left:last-of-type .boton-comprar-buscador{background:#E42420;}
+
+
+/*Fin colores buscador avanzado.02*/
+
+/* Fin personalización del color*/
+
+
+/*Botón de disponibilidad del producto*/
+
+.aviso-disponibilidad-producto, header#disponibilidad-producto, #envio-aviso-disponibilidad-producto{background:#E42420 !important;}
+.aviso-legal-disponibilidad-producto a{color:#E42420 !important; }
+.aviso-legal-disponibilidad-producto a:hover{color: #4a4a4a !important;}
+
+
+/* Header */
+/*
+    @media (max-width: 640px){
+        #info-header-bloque-tres {width: 75%;margin: 5em auto 0;}
+    }
+    @media(min-width:768px){
+        #logo{margin: 29px auto 0 !important;}
+
+    }
+
+
+    @media(min-width: 1024px){
+        #logo{margin: 16px 0 0 50px !important;}
+
+    }
+
+    @media(min-width: 1200px){
+        #logo{margin: 16px 0 0 0 !important;}
+    }
+*/
+
+/* Footer */
+/*
+    @media(min-width: 1024px){
+        #logo-footer{margin: 6px auto 0;}
+    }
+*/

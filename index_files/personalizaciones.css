@@ -1,0 +1,734 @@
+/* Ocultamos por defecto el botón de login, que luego recuperaremos mediante JS cuando hagamos los cambios obligados en el formulario*/
+
+#form_login input#enviar{ display:none;}
+
+
+
+/* Inicio sección de comerciales */
+
+	.comercialesContainer{width: 100%;display:block;font-size: 0;padding:0;max-width: 307px;margin: 0 auto;}
+
+	.comercialesContainer .container{width: 90%;margin:0 auto;max-width: 100%;}
+
+	.comercialesContainer header{margin: 0 0 15px 0;display: inline-block;width: 100%;border-bottom: 1px solid #cccccc;padding-bottom: 10px;}
+
+	.comercialesContainer header .tituloHeader{width: auto;display: inline-block;max-width: 147px;}
+
+	.comercialesContainer header .tituloHeader h1{font-family: 'Montserrat',sans-serif;font-weight: 200;text-transform:uppercase;color: #b1b2b4;font-size: 23px;text-align: left;margin:0;}
+
+	.comercialesContainer header .menuComercialMobile{margin: 15px 0 0;width: 32px;float: right;}
+
+	.comercialesContainer header .menuComercialMobile span{display: inline-block;width: 100%;height: 2px;background: #908c8d;}
+
+	.comercialesContainer header .menuComercialMobile span:nth-child(2){margin:4px 0;}
+
+	.comercialesContainer header .menuComercial{width: 100%;display:none;padding: 25px 0;background: #f0f0f0;margin:20px 0 0;text-align: center;}
+
+	.comercialesContainer header .menuComercial ul li{margin:0 0 15px 0;}
+
+	.comercialesContainer header .menuComercial ul li:last-of-type{margin:0;}
+
+	.comercialesContainer header .menuComercial ul li a{width: 90%;max-width: 300px;margin:0 auto;padding: 18px 0;display: block;text-align:center;font-family:'Lato',sans-serif;font-size:14px;color:#fff;text-decoration: none;text-transform: uppercase;}
+
+	.buscadorCLiente{width: 90%;max-width: 300px;margin: 0 auto;padding: 15.5px 12px;display: block;text-align: left;font-family: 'Lato',sans-serif;font-weight: bold;font-size: 14px;color: #4a4a4a;text-decoration: none;border: none;background: #fff url('../img/icono_buscador.png') no-repeat 100% 0px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+	.deseleccionarCliente{background: #1a3c8a;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s;}
+
+	.deseleccionarCliente:hover{background: #112a65;}
+
+	.cerrarSesionComercial{background: #e42420;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s;}
+
+	.cerrarSesionComercial:hover{background: #ab1a17;}
+
+	.comercialesContainer .infoComercial{width: 100%;display:block;}
+
+	.clientesAsignados{margin: 0 0 40px 0;}
+
+	.comercialesContainer .infoComercial .headerSection{height:40px;width: 100%;background: #4a4a4a;margin:0;padding-bottom:12px;padding-top: 4px;/*border: 1px solid #4a4a4a;*/}
+
+	.comercialesContainer .infoComercial .headerSection span{font-family: 'Montserrat',sans-serif;color: #fff;
+	font-size: 13px;display: block;text-align: center;text-transform: uppercase;padding: 11px 0;line-height: 26px;}
+
+	.lineasCliente .linea{width:100%;display:inline-block;text-align: center;padding:20px 0;border-bottom: 1px solid #cccccc;border-left: 1px solid #cccccc;border-right: 1px solid #cccccc;}
+
+	.lineasCliente .linea form{display: none;}
+
+	.lineasCliente .nombreCliente{font-family: 'Lato',sans-serif;font-size: 16px;color: #4a4a4a;text-transform: uppercase;margin: 0 0 15px 0;}
+
+	.lineasCliente .opcionesClientes ul li{display: inline-block;vertical-align: top;}
+
+	.lineasCliente .opcionesClientes ul li a{font-family: 'Lato',sans-serif;color:#fff;font-size:14px;text-transform: uppercase;text-decoration: none;display: block;}
+
+	.lineasCliente .opcionesClientes ul li a.compraRapida{background: #1a3c8a;padding: 15px;margin:0 10px 0 0;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s;}
+
+	.lineasCliente .opcionesClientes ul li a.compraRapida:hover{background:#112a65;}
+
+	.lineasCliente .opcionesClientes ul li a.desasignarCliente{width: 44px;height: 44px;background: #e42420;text-align: center;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s;}
+
+	.lineasCliente .opcionesClientes ul li a.desasignarCliente:hover{background: #ab1a17;}
+
+	.lineasCliente .opcionesClientes ul li a.desasignarCliente img{width: 65%;height: auto;margin: 8px 0 0;}
+
+	.lineasCliente .asignarCliente{width: 44px;height: 44px;background: #1a3c8a;text-align: center;display: inline-block;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s;}
+
+	.lineasCliente .asignarCliente:hover{background:#112a65;}
+
+	.lineasCliente .asignarCliente img{width: 65%;height: auto;margin: 8px 0 0;}
+	
+	.estilo_buscador {margin-top: 1px}
+
+	.selectboxit-container span, .selectboxit-container .selectboxit-options a {height: 40px;padding-top: 5px;font-size: 16px;}
+	
+	.tablaListaPedidosComercial .header{font-weight: none}
+
+	.datos_compra{width: 25%}
+
+	.estiloBtAsignatura {margin-top: 0px;}
+
+
+/* Tabla pedidos */
+
+
+		.headerReferencia.nombreProductoComercial {width: 24.5% !important;}
+
+		.bodyReferencia.nombreProductoComercial {width: 26.5% !important;padding-left: 15px;padding-top: 23px;}
+
+		.headerReferencia.descuentoTotalComercial {width: 6.5% !important;}
+
+		.nombre_producto{color: #4a4a4a; font-size: 14px; font-family: 'Montserrat',sans-serif;margin-bottom: 5px;}
+
+		.headerReferencia.cantidadStockComercial {width: 7% !important;}
+
+		.bodyReferencia.cantidadStockComercial {width: 9% !important;}
+
+		.bodyReferencia.precioComercial {width: 9% !important;}
+
+		.headerReferencia.precioComercial {width: 7% !important;}
+
+		.bodyReferencia.descuento2TotalComercial {width: 10% !important;}
+
+		.estilo_btn_cantidad{width: 25%; height: auto; margin-left: 9px;margin-top: 5px;cursor: pointer;transition-duration: 0.8s;}
+
+		.estilo_btn_cantidad:hover {opacity: 0.5; transition-duration: 0.8s;}
+
+		.bodyReferencia.importeTotalComercial {width: 18.5%!important }
+
+		.totalPedidosComercial .headerSection, .formasEnvioComercial .headerSection {padding-bottom: 10px!important; padding-top: 0px!important;}
+
+		.bodyReferencia.cantidadComercial {width: 14.5% }
+
+		.lineatotal span{margin: 0px}
+
+		.comentarioComercial .headerSection span{padding-bottom: 6px !important;}
+
+		.listaPedidosComercial .headerReferencia, .listaPedidosComercial .bodyReferencia input{font-size: 14px;text-align: left;padding-left: 20px;float: left;}
+
+		.inputBuscador input[type="text"]{height:48px;}
+
+		.comercialesContainer header .menuComercial {height:115px !important;}
+
+		.totalPedidosComercial .lineasTotales .lineaTotal span:last-of-type input{text-align: right;}
+
+		.listaPedidosComercial .headerReferencia{font-size: 14px;}
+
+		.listaPedidosComercial .bodyReferencia{width: 15.2%;display: inline-block;padding: 15px 0;min-height: 18px;vertical-align: top;}
+
+		.listaPedidosComercial .bodyReferencia input{width:100%;font-family: 'Montserrat',sans-serif;color: #4a4a4a;background: #f0f0f0;font-size: 16px;text-align: left;text-transform: uppercase;border:none;    margin: 15px 0 0;}
+
+		.listaPedidosComercial .cantidadComercial input{background: #fff;padding: 15px 0;margin: 0;}
+
+		.lineaReferenciaComercial{width: 100%;display: inline-block;border-bottom: 1px solid #cccccc;}
+
+
+/* Inicio de panel de compra rápida */
+
+    #descripcion_articulo_comerciales{opacity:0.33;}
+
+    .nombreClienteComercial{width: 100%;display: inline-block;margin: 10px 0 20px;}
+
+    .nombreClienteComercial p{font-family: 'Lato', sans-serif;font-weight: 300;font-size: 16px;color: #0f0f0f;line-height: 25px;text-align: center;}
+
+    .nombreClienteComercial p span{font-weight: bold;color: #e42420;}
+
+	.compraRapidaContainer{width: 100%;display: inline-block;background: #f0f0f0;padding: 30px 0;}
+
+	.buscardorComercial img.loading_gif{top: 9px;left: 41%;display:inline;}
+
+	.inputBuscador{width: 100%;display: inline-block;position: relative;}
+
+	.inputBuscador input[type="text"]{height:54px;width: 100%;border:1px solid #cccccc;color:#4a4a4a;font-family: 'Lato', sans-serif;font-size: 16px;padding: 17px 15px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+	.inputBuscador input[type="submit"]{width: 54px;height: 54px;font-size: 0;border: none;background: #1a3c8a url('../img/search.png')center center no-repeat;position: absolute;right: 0;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s;}
+
+	.inputBuscador input[type="submit"]:hover{background: #112a65 url('../img/search.png')center center no-repeat;}
+
+	.cantidadProductosComercial{width: 100%;display: inline-block;margin: 13px 0 0;}
+
+	.cantidadProductosComercial p{font-family: 'Lato', sans-serif;font-weight: 300;font-size: 16px;color: #0f0f0f;line-height: 25px;text-align: center}
+
+	.cantidadProductosComercial p span{font-weight: bold;color: #e42420;}
+
+	.resultadosProductosComercial{width: 100%;display: inline-block;margin:0;max-height: 334px;overflow-y: scroll;}
+
+	.resultadosProductosComercial .ui-autocomplete{width:100% !important; position: relative;padding: 0 !important;display: inline-block !important;}
+
+	.productoComercial{width:100%;display:inline-block;background: #fff;;padding:15px 20px;border-bottom:1px solid #abaaaa;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: center;}
+
+	.productoComercial .imagen{margin:0 0 15px;}
+
+	.productoComercial .info{width: 100%;display: inline-block;}
+
+	.productoComercial .info .nombrePrecio{color:#4a4a4a;font-family: 'Lato',sans-serif;font-size: 16px;margin: 0px;}
+
+	.productoComercial .info .nombrePrecio p:first-of-type{margin:0 0 5px 0;line-height: 19px;}
+
+	.productoComercial .refStock {line-height: 21px;}
+
+	.productoComercial .refStock span{font-size:14px !important;color: #e42420 !important;width: 100%}
+
+	.productoComercial .info .nombrePrecio span{font-size: 14px;color: #908c8d;margin-top: 4px;float: left;margin-bottom: 4px;width: 100%!important }
+
+	.productoComercial .cantidadProducto{width: 100%;display: inline-block;margin: 0 0 15px;}
+
+	.productoComercial .cantidadProducto input{width: 100%;font-family: 'Lato', sans-serif;font-weight: 300;font-size: 16px;height: 37px;;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+	.productoComercial .btnComprarProducto{display: block;font-family:'Lato',sans-serif;text-transform:uppercase;color:#fff;text-decoration:none;
+	font-size:14px;background:#1a3c8a;padding: 11.5px 15px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s;}
+
+	.productoComercial .btnComprarProducto:hover{background: #112a65;}
+
+	.portesPedidoComercial{width: 100%;display: inline-block;margin: 15px 0 0;}
+
+	.portesPedidoComercial .headerSection{width: 100%;background: #4a4a4a;margin: 0;}
+
+	.portesPedidoComercial .headerSection span{font-family: 'Montserrat',sans-serif;color: #fff;font-size: 18px;display: block;text-align: center;text-transform: uppercase;padding: 15px 0;}
+
+	.totalPedidosComercial{width: 100%;display: inline-block;}
+
+	.totalPedidosComercial .lineasTotales{width: 100%;display: inline-block;}
+
+	.totalPedidosComercial .lineasTotales .lineaTotal{width: 100%;display: inline-block;padding:15px 0;border-bottom:1px solid #cfcfcf;text-transform: uppercase;}
+
+	.totalPedidosComercial .lineasTotales .lineaTotal span{width: 100%;display: inline-block;font-family: 'Lato', sans-serif;font-size: 14px;color: #9c9d9f;text-align: center;line-height: 19px;}
+
+	.totalPedidosComercial .lineasTotales .lineaTotal span:last-of-type{max-width: 87px;vertical-align: top;margin:5px auto 0;display: block;}
+
+	.totalPedidosComercial .lineasTotales .lineaTotal span:last-of-type input{width:100%;border:none; background: #f0f0f0;font-family: 'Lato', sans-serif;font-weight: 300;font-size: 16px;color: #0f0f0f;text-align: center;padding: 0;margin: 0;line-height: 0;margin-left: -2px;}
+
+	.resultadosProductosComercial .ui-autocomplete .ui-menu-item .precio-actual{font-size: 14px;display: inline-block;margin: 10px 0 5px;}
+
+	.formasEnvioComercial{width: 100%;display:inline-block;margin:35px 0 0;}
+
+	.formasEnvioComercial .selectFormaEnvioComercial{width: 100%;display: inline-block;margin:25px 0 0 ;}
+
+	.formasEnvioComercial .selectFormaEnvioComercial .selectboxit-container{width: 100%;}
+
+	.formasEnvioComercial  .selectboxit-container .selectboxit{background:#ffffff !important; height: 40px}
+
+	.formasEnvioComercial .selectFormaEnvioComercial p{font-family: 'Lato', sans-serif;font-weight: 300;font-size: 16px;color: #6c6b70;margin: 0 0 10px 0;}
+
+	.formasEnvioComercial .selectFormaEnvioComercial select{width:100% !important;background:#ffffff !important;border:none;font-family: 'Lato', sans-serif;font-weight: 300;font-size: 16px;color: #0f0f0f;line-height: 0;padding: 9.5px 15px !important;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+	.formasEnvioComercial #forma_envioSelectBoxItOptions{min-width: auto !important; width:100% !important;}
+
+	.formasEnvioComercial .selectboxit-option{font-size: 14px !important}
+
+	.descuentoComercial{width: 100%;display: inline-block;margin: 35px 0 0;}
+
+	.descuentoComercial p{font-family: 'Lato', sans-serif;font-weight: 300;font-size: 16px;color: #6c6b70;line-height: 20px;}
+
+	.insertDescuentoComercial{width: 100%;display:none;margin:35px 0 0 0;}
+
+	.insertDescuentoComercial input[type="text"]{width: 100%;font-family: 'Lato', sans-serif;font-weight: 300;font-size: 16px;color: #0f0f0f;padding: 6.5px 15px;margin:0 0 15px 0;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+	.insertDescuentoComercial input[type="submit"]{font-family: 'Lato',sans-serif;text-transform: uppercase;color: #fff;text-decoration: none;font-weight: bold;font-size: 14px;background: #1a3c8a;padding:11px 15px;x;border: none;width: 100%;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s;}
+
+	.insertDescuentoComercial input[type="submit"]:hover{background: #112a65;cursor: pointer;}
+
+	.listaPedidosComercial{width: 100%;display: inline-block;margin: 35px 0 0;overflow-x: scroll;}
+
+	.listaPedidosComercial .tablaListaPedidosComercial{width: 1061px;display: inline-block;}
+
+	.listaPedidosComercial .headerReferencia{width: 15.2%;display: inline-block;font-family: 'Montserrat',sans-serif;color: #fff;font-size: 14px;text-align: left;text-transform: uppercase;padding: 20px 0 12px;background: #4a4a4a;min-height: 14px;vertical-align: top;}
+
+	.listaPedidosComercial .bodyReferencia{width: 8%;}
+
+	.listaPedidosComercial .bodyReferencia input{width:100%;font-family: 'Montserrat',sans-serif;color: #4a4a4a;background: #f0f0f0;font-size: 16px;text-align: left;text-transform: uppercase;border:none;    margin: 15px 0 0;}
+
+	.listaPedidosComercial .cantidadComercial input{background: #fff;padding: 15px 0;margin: 0;}
+
+	.lineaReferenciaComercial{width: 100%;display: inline-block;border-bottom: 1px solid #cccccc;}
+
+	.eliminarReferenciaComercial .btn{width: 48px;height: 48px;margin: 0 auto;background: #e42420;text-align: center;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s;}
+
+	.eliminarReferenciaComercial .btn:hover{background: #ab1a17;cursor: pointer;}
+
+	.eliminarReferenciaComercial .btn img{width: 65%;height: auto;margin: 8px 0 0;}
+
+	.form_procesa_pedido{width: 100%;display: inline-block;margin:25px 0 0;}
+
+	.form_procesa_pedido input{width: 230px;margin: 0 auto;padding: 15.5px 0;display: block;text-align: center;font-family: 'Lato',sans-serif;font-size: 16px;color: #fff;text-decoration: none;text-transform: uppercase;border: none;background: #1a3c8a;-webkit-transition-duration: 0.8s;-moz-transition-duration: 0.8s;transition-duration: 0.8s; opacity: 0.33; }
+
+	.form_procesa_pedido input:hover{background: #112a65;transition-duration: 0.8s;}
+
+	.nombreProductoComercial{width: 225px !important;}
+
+	.referenciaComercial{width: 185px !important;}
+
+	.cantidadComercial, .cantidadStockComercial, .descuentoTotalComercial, .importeTotalComercial{width: 150px !important;}
+
+	.eliminarReferenciaComercial{width: 51px !important;}
+
+	.comentarioComercial{width: 100%;display: inline-block;margin: 35px 0 0;}
+
+	.comentarioComercial textarea{width: 100%;display: inline-block;margin: 15px 0 14px;height: 180px;border: 1px solid #cccccc;color: #000;font-family: 'Lato', sans-serif;font-size: 16px;padding: 9.5px 15px;line-height: 22px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+	.listaPedidosComercial .headerReferencia, .listaPedidosComercial .bodyReferencia input {font-size: 13px;padding-left: 20px;}
+
+	#iva-incluido {padding-left: 0px;}
+
+	.bodyReferencia.cantidadComercial input {width: 50%;}
+	
+	#top_bar {height: 55px;}
+
+
+	@media(min-width: 600px){
+
+		#top_bar {height: 25px !important;}
+
+		.comercialesContainer{max-width: 768px;}
+
+		.buscadorCLiente, .comercialesContainer header .menuComercial ul li a{width: 100%;}
+
+		.comercialesContainer header .tituloHeader{max-width: none;}
+
+		.comercialesContainer header .menuComercialMobile{margin:8px 0 0;cursor: pointer;}
+
+		.comercialesContainer header .menuComercial ul{max-width: 314px;display: block;margin: 0 auto;}
+
+		.comercialesContainer .infoComercial .headerSection span{text-align: left;margin: 0; padding-bottom: 0px; margin-left: 20px;}
+
+		.lineasCliente .linea{text-align: left;padding: 10px 30px 4px 30px;display: inline-block;width: 100%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+		.lineasCliente .nombreCliente{width: auto;display: inline-block;margin: 13px 0 0;}
+
+		.lineasCliente .linea .opcionesClientes{width: auto;float: right;vertical-align: top;}
+
+		.lineasCliente .asignarCliente{float: right;vertical-align: top;margin-top: 2px;margin-bottom: 5px;}
+
+		nav {height: 60px !important;}
+
+		.precio-actual {float: left!important; width: 100% !important}
+
+		.pd_buscador{width: 21%}
+
+		.comercialesContainer {padding: 0px 0;}
+
+		.comercialesContainer header .menuComercial {height: 110px !important;}
+
+		.portesPedidoComercial {width: 100%;display: inline-block;margin: 15px 0 0;}
+
+		.totalPedidosComercial .lineasTotales .lineaTotal span:last-of-type input {text-align: left;}
+
+		
+		/* Tabla pedidos */
+
+		.headerReferencia.nombreProductoComercial {width: 24.5% !important;}
+
+		.bodyReferencia.nombreProductoComercial {width: 25% !important;padding-left: 15px;padding-top: 23px;}
+
+		.headerReferencia.descuentoTotalComercial {width: 6.5% !important;}
+
+		.nombre_producto{color: #4a4a4a; font-size: 14px; font-family: 'Montserrat',sans-serif;margin-bottom: 5px;}
+
+		.headerReferencia.cantidadStockComercial {width: 7% !important;}
+
+		.bodyReferencia.cantidadStockComercial {width: 9% !important;}
+
+		.bodyReferencia.precioComercial {width: 8% !important;}
+
+		.headerReferencia.precioComercial {width: 7% !important;}
+
+		.bodyReferencia.descuento2TotalComercial {width: 10% !important;}
+
+		.estilo_btn_cantidad{width: 24%; height: auto; margin-left: 9px;margin-top: 0px;cursor: pointer;transition-duration: 0.8s;}
+
+		.estilo_btn_cantidad:hover {opacity: 0.5; transition-duration: 0.8s;}
+
+		.bodyReferencia.importeTotalComercial {width: 13%!important }
+
+		.totalPedidosComercial .headerSection, .formasEnvioComercial .headerSection {padding-bottom: 10px!important; padding-top: 0px!important;}
+
+		.lineatotal span{margin: 0px}
+
+		.comentarioComercial .headerSection span{padding-bottom: 6px !important;}
+
+		.listaPedidosComercial .headerReferencia, .listaPedidosComercial .bodyReferencia input{font-size: 14px;text-align: left;padding-left: 20px;float: left;}
+
+		.inputBuscador input[type="text"]{height:55px;}
+
+		.comercialesContainer header .menuComercial {height:107px !important;}
+
+		.totalPedidosComercial .lineasTotales .lineaTotal span:last-of-type input{text-align: center;}
+
+		.listaPedidosComercial .headerReferencia{font-size: 14px;}
+
+		.bodyReferencia.cantidadComercial {width:19.5% !important;}
+
+		.listaPedidosComercial .bodyReferencia input{width:100%;font-family: 'Montserrat',sans-serif;color: #4a4a4a;background: #f0f0f0;font-size: 16px;text-align: left;text-transform: uppercase;border:none;    margin: 15px 0 0;}
+
+		.listaPedidosComercial .cantidadComercial input{background: #fff;padding: 15px 0;margin: 0;}
+
+		.lineaReferenciaComercial{width: 100%;display: inline-block;border-bottom: 1px solid #cccccc;}
+
+		#top_bar {height: 50px !important;}
+
+		#iva-incluido {padding-left: 00px;}
+
+		.nombreClienteComercial p{text-align: left;}
+
+		.cantidadProductosComercial p{text-align: left}
+
+		.productoComercial{padding:25px 20px;}
+
+		.productoComercial .cantidadProducto{max-width: 180px;margin:0 auto 15px;display: block;}
+
+		.productoComercial .btnComprarProducto{max-width: 180px;margin:0 auto;display: block;}
+
+		.formasEnvioComercial .selectFormaEnvioComercial p{width: auto;display: inline-block;margin: 17px 0 0;}
+
+		.formasEnvioComercial .selectFormaEnvioComercial select{width: 50%;float:right;}
+
+		.descuentoComercial input{margin: 9px 2px 0 0;}
+
+		.insertDescuentoComercial input[type="text"]{width: 40%;display:inline-block;margin:0;}
+
+		.insertDescuentoComercial input[type="submit"]{width: 45%;margin:0 0 0 15px;display: inline-block;}
+
+		.formasEnvioComercial .selectFormaEnvioComercial #form_forma_envio{width: 51%;float: right;margin: 7px 0 0;}
+
+		.portesPedidoComercial {margin: 15px 0 0;}
+
+		.listaPedidosComercial .headerReferencia, .listaPedidosComercial .bodyReferencia input {padding-left: 20px;width: 60%;}
+
+		.headerReferencia.cantidadComercial {width: 18% !important;}
+
+		.headerReferencia.importeTotalComercial {
+    width: 10.5% !important;
+}
+
+}
+
+	@media(min-width: 1024px){
+
+
+
+		/* .comercialesContainer .mainContainer{min-width: 967px;} */
+
+		.comercialesContainer header .menuComercial ul{max-width: none;}
+
+		.comercialesContainer header .tituloHeader{margin:14px 0 0 0;}
+
+		.menuComercialMobile{display: none;}
+
+		.comercialesContainer header .menuComercial{width: auto;margin:0;padding:0;background:0;display: inline-block !important;float: right;}
+
+		.comercialesContainer{max-width: 100%;}
+
+		.comercialesContainer header .menuComercial ul li{min-width: 230px;display: inline-block;}
+
+		.comercialesContainer header .menuComercial ul li:first-of-type{margin:0 15px 0;float: left}
+
+		.comercialesContainer header .menuComercial ul li a{width: 100%;}
+
+		.lineasCliente .opcionesClientes ul li a.compraRapida{padding: 15px 25px;}
+
+		.compraRapidaContainer {padding: 35px 0;}
+
+		.buscadorCLiente{border: 1px solid #cccccc;height: 49px;font-weight: normal}
+
+		.precio-actual {float: left!important; width: 46% !important}
+
+		.estilo_icono_buscador {width: 49px;height: 49px;float: right;text-align: right;}
+
+		#iva-incluido {padding-left: 0px;}
+
+		.nombreClienteComercial p{font-size: 17px}
+
+		.resultadosProductosComercial{max-height: 404px;}
+
+		.insertDescuentoComercial input[type="submit"]{width: auto;}
+
+		.resultadosProductosComercial .ui-autocomplete .ui-menu-item .precio-actual{margin:0;}
+
+		.productoComercial .info .nombrePrecio p:first-of-type {margin: 0 0 5px 0;}
+
+		.comercialesContainer .container{width: 100%;}
+
+		.compraRapidaContainer .container{max-width: none;width: 95%;}
+
+		.buscardorComercial {width: 64%;max-width: 670px;}
+
+		.productoComercial{text-align: left;}
+
+		.productoComercial .imagen{width: 61px;margin: 17px 0 0;display: inline-block;}
+
+		.productoComercial .info{width: 235px;display: inline-block;vertical-align: top;margin: 0 0 0 27px;color: #4a4a4a;}
+
+		.productoComercial .cantidadProducto{max-width: 80px;margin: 30px 0 0 0px;display: inline-block;vertical-align: top;}
+
+		.productoComercial .btnComprarProducto{max-width: 116px;text-align: center;float: right;vertical-align: top;margin: 30px 0 0 0;}
+
+		.portesPedidoComercial{width: 36%;}
+
+		.formasEnvioComercial .selectFormaEnvioComercial p{display:none;}
+
+		.descuentoComercial input{margin: 7px 5px 0 0;}
+
+		.descuentoComercial p{font-size: 15px;}
+
+		.listaPedidosComercial .tablaListaPedidosComercial{width: 100%;}
+
+		.resultadosProductosComercial .ui-autocomplete .ui-menu-item{padding-left:0 !important;}
+
+		.listaPedidosComercial{overflow: hidden;}
+
+		.nombreProductoComercial{width: 138px !important;}
+
+		.referenciaComercial {width: 122px !important;}
+
+		.cantidadComercial, .cantidadStockComercial, .descuentoTotalComercial, .importeTotalComercial{width: 128.9px !important;}
+
+		.eliminarReferenciaComercial{width: 51px !important;}
+
+		.cantidadComercial input{width: 50% !important;margin: 0 auto !important;display: block !important;}
+
+		.comercialesContainer header .menuComercial {height: 0px !important;}
+
+		.productoComercial .info .nombrePrecio span {text-align: left!important;}
+
+		.compraRapidaContainer {padding: 30px 0 !important;}
+
+		.nombreClienteComercial{margin: 10px 0 25px;}
+
+		.resultadosProductosComercial{max-height: 440px}
+
+		.cantidadProductosComercial{margin:17px 0 0;}
+
+		.buscardorComercial{width: 55%;display: inline-block;}
+
+		.portesPedidoComercial{width: 40%;float: right;vertical-align: top;margin:0;}
+
+		.formasEnvioComercial .selectFormaEnvioComercial p{width: 100%;margin: 0 0 20px 0;}
+
+		.formasEnvioComercial .selectFormaEnvioComercial select{width: 100%;}
+
+		.insertDescuentoComercial input[type="text"]{width: 42%;}
+
+		.insertDescuentoComercial input[type="submit"]{width: 167px;float: right;margin: 0;}
+
+		.listaPedidosComercial .headerReferencia, .listaPedidosComercial .bodyReferencia{width: 11%;}
+
+		.totalPedidosComercial .lineasTotales .lineaTotal span{font-size: 13px;width: 62%;display: inline-block;vertical-align: top;text-align: left;}
+
+		.totalPedidosComercial .lineasTotales .lineaTotal span:last-of-type{float: right;margin: 0;}
+
+		.totalPedidosComercial .lineasTotales .lineaTotal:nth-child(2) span:last-of-type{margin: 0px 0 0 0;}
+
+		.form_procesa_pedido input{float: right;margin: 0;}
+
+		#forma_envioSelectBoxItOptions a{color: #000 !important;}
+
+		.formasEnvioComercial .selectFormaEnvioComercial #form_forma_envio{width: 100%;margin:0;}
+		
+		.headerReferencia.nombreProductoComercial {width: 18% !important;}
+
+		.bodyReferencia.nombreProductoComercial {width: 19.5% !important;padding-left: 15px;padding-top: 23px;}
+
+		.headerReferencia.descuentoTotalComercial {width: 8.5% !important;}
+
+		.nombre_producto{color: #4a4a4a; font-size: 14px; font-family: 'Montserrat',sans-serif;margin-bottom: 5px;}
+
+		.headerReferencia.cantidadStockComercial {width: 7% !important;}
+
+		.bodyReferencia.cantidadStockComercial {width: 9% !important;}
+
+		.bodyReferencia.precioComercial {width: 10% !important;}
+
+		.headerReferencia.precioComercial {width: 7.5% !important;}
+
+		.bodyReferencia.descuento2TotalComercial {width: 13.3% !important;}
+
+		.estilo_btn_cantidad{width: 25%; height: auto; margin-left: 9px;margin-top: 5px;cursor: pointer;transition-duration: 0.8s;}
+
+		.estilo_btn_cantidad:hover {opacity: 0.5; transition-duration: 0.8s;}
+
+		.bodyReferencia.importeTotalComercial {width: 15.5% !important }
+
+		.totalPedidosComercial .headerSection, .formasEnvioComercial .headerSection {padding-bottom: 10px!important; padding-top: 3px!important;}
+
+		.bodyReferencia.cantidadComercial {width: 15.5% !important}
+
+		.lineatotal span{margin: 0px}
+
+		.comentarioComercial .headerSection span{padding-bottom: 6px !important;}
+
+		.listaPedidosComercial .headerReferencia, .listaPedidosComercial .bodyReferencia input{height: 20px;font-size: 14px;text-align: left;padding-left: 20px;float: left;}
+
+		.inputBuscador input[type="text"]{height:54px;}
+
+		.comercialesContainer header .menuComercial {height:55px !important;}
+
+		.totalPedidosComercial .lineasTotales .lineaTotal span:last-of-type input{text-align: right;}
+
+		.buscardorComercial {width: 56%;max-width: 550px;}
+
+		.productoComercial{text-align: left;}
+
+		.productoComercial .imagen{width: 50px;margin: 17px 0 0;display: inline-block;}
+
+		.productoComercial .info{width: 168px;display: inline-block;vertical-align: top;margin: 0 0 0 27px;color: #4a4a4a;}
+
+		.productoComercial .cantidadProducto{max-width: 80px;margin: 30px 0 0 0px;display: inline-block;vertical-align: top;}
+
+		.productoComercial .btnComprarProducto{max-width: 116px;text-align: center;float: right;vertical-align: top;margin: 30px 0 0 0;}
+
+	.headerReferencia.cantidadComercial {
+    width: 15% !important;
+}
+.headerReferencia.eliminarReferenciaComercial {
+    width: 2% !important;
+}
+
+.headerReferencia.importeTotalComercial {
+    width: 14.5% !important;
+}
+
+	}
+
+
+
+
+
+
+
+	@media(min-width: 1200px){
+
+		.nombreClienteComercial p{font-size: 17px}
+
+		.resultadosProductosComercial{max-height: 404px;}
+
+		.insertDescuentoComercial input[type="submit"]{width: auto;}
+
+		.resultadosProductosComercial .ui-autocomplete .ui-menu-item .precio-actual{margin:0;}
+
+		.productoComercial .info .nombrePrecio p:first-of-type {margin: 0 0 5px 0;}
+
+		.comercialesContainer .container{width: 100%;}
+
+		.compraRapidaContainer .container{max-width: none;width: 95%;}
+
+		.buscardorComercial {width: 64%;max-width: 670px;}
+
+		.productoComercial{text-align: left;}
+
+		.productoComercial .imagen{width: 61px;margin: 17px 0 0;display: inline-block;}
+
+		.productoComercial .info{width: 330px;display: inline-block;vertical-align: top;margin: 0 0 0 27px;color: #4a4a4a;}
+
+		.productoComercial .cantidadProducto{max-width: 80px;margin: 30px 0 0 0px;display: inline-block;vertical-align: top;}
+
+		.productoComercial .btnComprarProducto{max-width: 116px;text-align: center;float: right;vertical-align: top;margin: 30px 0 0 0;}
+
+		.portesPedidoComercial{width: 36%;}
+
+		.formasEnvioComercial .selectFormaEnvioComercial p{display:none;}
+
+		.descuentoComercial input{margin: 7px 5px 0 0;}
+
+		.descuentoComercial p{font-size: 15px;}
+
+		.listaPedidosComercial .tablaListaPedidosComercial{width: 100%;}
+
+		.resultadosProductosComercial .ui-autocomplete .ui-menu-item{padding-left:0 !important;}
+
+		.listaPedidosComercial{overflow: hidden;}
+
+		.listaPedidosComercial .headerReferencia, .listaPedidosComercial .bodyReferencia input{font-size: 14px;text-align: left;padding-left: 20px;float: left;}
+
+		.nombreProductoComercial{width: 138px !important;}
+
+		.referenciaComercial {width: 122px !important;}
+
+		.cantidadComercial, .cantidadStockComercial, .descuentoTotalComercial, .importeTotalComercial{width: 128.9px !important;}
+
+		.eliminarReferenciaComercial{width: 51px !important;}
+
+		.cantidadComercial input{width: 50% !important;margin: 0 auto !important;display: block !important;}
+
+		.headerReferencia.nombreProductoComercial {width: 31% !important;}
+
+		.bodyReferencia.nombreProductoComercial {width: 31.5% !important;}
+
+		.bodyReferencia.precioComercial {width: 8.5% !important;}
+
+		.bodyReferencia.descuento2TotalComercial {width: 12% !important;}
+
+		.listaPedidosComercial .bodyReferencia {width: 9%;}
+
+		.bodyReferencia.importeTotalComercial {width: 8% !important;}
+
+		.comercialesContainer header .menuComercial {height:55px !important;}
+
+		.totalPedidosComercial .lineasTotales .lineaTotal span:last-of-type input{text-align: right;}
+
+		.inputBuscador input[type="text"] {height: 54px;}
+
+		.lineasCliente .linea {padding: 15px 30px 0px 30px;}
+
+		.linea.lineaDisponible{padding:6px 30px 4px 30px;}
+
+		#iva-incluido {margin-top: 5px!important;}
+
+		.headerReferencia.descuentoTotalComercial {width: 8% !important;}
+
+		.bodyReferencia.cantidadComercial {width: 15% !important;}
+
+		.headerReferencia.importeTotalComercial {
+    width: 7% !important;
+}
+
+	}
+
+
+		@media(min-width: 768px){
+
+		.productoComercial .info .nombrePrecio {float: none; font-size: 16px;}
+		.productoComercial .info .nombrePrecio span {text-align: center; width: 100%;margin-top: 2px; }
+		.precio-actual {width: 100%!important}
+		#iva-incluido {padding-left: 0px;margin-top: 10px;}
+
+		.totalPedidosComercial .lineasTotales .lineaTotal span:last-of-type input {text-align: center;}
+		.listaPedidosComercial .bodyReferencia {
+    width: 9%;
+}
+
+
+
+
+
+
+
+
+		}
+	
+
+/* Fin de panel de compra rápida */
+
+
+/* Inicio alertas de aviso */
+
+	.avisoPedidoComercial{width: 100%;height: 100%;position: fixed;left: 0;top: 0;background: rgba(0,0,0,0.6);z-index: 15;display: none;}
+	.avisoPedidoComercial .container{width: 100%;height: 100%;display: table-cell;vertical-align: middle;margin: auto;max-width: none;}
+	.avisoPedidoComercial .avisoComercial{width: 90%;max-width: 375px;margin:0 auto;padding:25px 0;background: #fff;}
+	.avisoPedidoComercial .avisoComercial p{font-family: 'Lato', sans-serif;font-weight: 300;font-size: 16px;color: #0f0f0f;text-align: center;}

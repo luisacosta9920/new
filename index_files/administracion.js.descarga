@@ -1,0 +1,792 @@
+// Aqui declararemos las funciones para cargar el contenido del panel
+function submitFormAjax(idForm, ajax) {
+	tinyMCE.triggerSave(true, true);
+	var f_data = new FormData(document.getElementById(idForm));
+	
+	console.log(subdirectorio+"/modulo_administracion/ajax/"+ajax+".php");
+	
+	$.ajax({
+		type: "POST",
+		url: subdirectorio+"/modulo_administracion/ajax/"+ajax+".php",
+		data: f_data, 
+		contentType: false,
+		processData: false, 
+		success: function(result){
+			
+			var data = JSON.parse(result);
+			$('#dislplayMsj').html(data.html);
+			$('#dislplayMsj').fadeIn();
+			
+			if(!data.error){
+				if(data.formCrear) {
+					$('#'+idForm).trigger("reset");
+				}
+				loadTinyMCE();
+			}
+
+			if(data.catalogo_preview){ 
+				var imagen_url = data.catalogo_preview.imagen;
+				var pdf_url = data.catalogo_preview.pdf;
+				if(data.catalogo_preview.imagen){
+				$('#imagen_destacada').attr('src', imagen_url);
+				}
+				if(data.catalogo_preview.pdf){
+					$('#pdf_catalogo').attr('href', pdf_url);
+				}
+				
+			}
+			
+			$("html, body").animate({scrollTop: 0}, 1000);
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+}
+
+function loadSection(html) {
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $('#muestraContenido').load(subdirectorio+'/modulo_administracion/templates/'+html+'.html',
+            function (responseTxt, statusTxt, xhr){
+                if (statusTxt == "success")
+                    $(this).html($(this).html().replace(/{subdirectorio}/, subdirectorio));
+                    $('#muestraContenido').fadeIn();
+					
+					loadTinyMCE();
+                if (statusTxt == "error")
+                    console.log("Error: " + xhr.status + ": " + xhr.statusText);
+            });
+        });
+    }
+}
+
+function loadSectionAjax(html, ajax, id = 0) {
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/"+ajax+".php",
+                method: 'POST',
+                data:{
+                    'html_cont': html,
+                    'subdir':subdirectorio,
+                    'id':id
+                }, 
+                success: function(result){
+                    var data = JSON.parse(result);
+                    if(!data.error){
+                        $('#muestraContenido').html(data.html);
+                        $('#muestraContenido').fadeIn();
+						
+						loadTinyMCE();
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+function loadVistaCategoriaFiltros(id_fam, id_subfam = '') {
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/pintaVistaCategoria.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+                    'id_fam':id_fam,
+                    'id_subfam':id_subfam
+                }, 
+                success: function(result){
+                    var data = JSON.parse(result);
+                    if(!data.error){
+                        $('#muestraContenido').html(data.html);
+                        $('#muestraContenido').fadeIn();
+						
+						loadTinyMCE();
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+function muestraDetallesSubfamilia(id_fam, id_subfam, id_fam_extra = ''){
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/pintaVistaFamiliaExtra.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+                    'id_fam':id_fam,
+                    'id_subfam':id_subfam,
+					'id_fam_extra':id_fam_extra
+                }, 
+                success: function(result){
+                    var data = JSON.parse(result);
+                    if(!data.error){
+                        $('#muestraContenido').html(data.html);
+                        $('#muestraContenido').fadeIn();
+
+						$('[data-toggle="tooltip"]').tooltip()
+
+						loadTinyMCE();
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+function loadVistaNuevoFiltro(id_fam, id_subfam = '') {
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/pintaVistaNuevoFiltro.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+                    'id_fam':id_fam,
+                    'id_subfam':id_subfam
+                }, 
+                success: function(result){
+                    var data = JSON.parse(result);
+                    if(!data.error){
+                        $('#muestraContenido').html(data.html);
+                        $('#muestraContenido').fadeIn();
+						
+						loadTinyMCE();
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+function loadVistaNuevaFamiliaExtra(id_fam, id_subfam, id_fam_extra_padre) {
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/pintaVistaNuevaFamiliaExtra.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+                    'id_fam':id_fam,
+                    'id_subfam':id_subfam,
+					'id_fam_extra_padre':id_fam_extra_padre
+                }, 
+                success: function(result){
+                    var data = JSON.parse(result);
+                    if(!data.error){
+                        $('#muestraContenido').html(data.html);
+                        $('#muestraContenido').fadeIn();
+						
+						loadTinyMCE();
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+function loadVistaEditaFamiliaExtra(id, id_fam, id_subfam, id_familia_padre = ''){
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/pintaEdicionFamiliaExtra.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+					'id':id,
+                    'id_fam':id_fam,
+                    'id_subfam':id_subfam,
+					'id_familia_padre':id_familia_padre
+                }, 
+                success: function(result){
+                    if(result){
+                        $('#muestraContenido').html(result);
+                        $('#muestraContenido').fadeIn();
+						
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+function loadVistaEditaFamiliaSuperior(id){
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/pintaEdicionFamiliaSuperior.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+					'id':id
+                }, 
+                success: function(result){
+                    if(result){
+                        $('#muestraContenido').html(result);
+                        $('#muestraContenido').fadeIn();
+						
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+function loadVistaEditaFiltro(id_filtro, id_fam, id_subfam){
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/pintaEdicionFiltro.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+					'id_filtro':id_filtro,
+                    'id_fam':id_fam,
+                    'id_subfam':id_subfam
+                }, 
+                success: function(result){
+                    if(result){
+                        $('#muestraContenido').html(result);
+                        $('#muestraContenido').fadeIn();
+						
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+function addCampoForm() {
+    $( ".input-atributo:first" ).clone().appendTo( "#atributos" );
+}
+
+function eliminaNoticia(id) {
+	
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarNoticia.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'id':id
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#eliminarNot').modal('toggle');
+				loadSectionAjax('template-noticias-list-administracion','pintaListaNoticias');
+			}else{
+				alert('Ocurrió un error al eliminar la noticia');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+
+}
+function eliminaCategoriaDestacada(uniqid) {
+	
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarCategoriaDestacada.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'uniqid':uniqid
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#eliminarCategoriaDestacada').modal('toggle');
+				loadSectionAjax('categoria_destacada/template-categoria-destacada-administracion','pintaListaCategoriasDestacadas');
+			}else{
+				alert('Ocurrió un error al eliminar la categoria');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+
+}
+
+function eliminaCatalogo(uniqid) {
+	
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarCatalogo.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'uniqid':uniqid
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#eliminarCat').modal('toggle');
+				loadSectionAjax('catalogos/template-catalogos-administracion','pintaListaCatalogos');
+			}else{
+				alert('Ocurrió un error al eliminar el catálogo');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+
+}
+
+function eliminaMenu(id) {
+	
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarMenu.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'id':id
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#eliminarMenu').modal('toggle');
+				loadSectionAjax('menus/template-menus-administracion','pintaListaMenus');
+			}else{
+				alert('Ocurrió un error al eliminar el menú');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+
+}
+
+function eliminaSliderItem(id) {
+	
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarSliderItem.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'id':id
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#eliminarSlide').modal('toggle');
+				loadSectionAjax('slider_admin/template-slides-list-administracion','pintaSlider');
+			}else{
+				alert('Ocurrió un error al eliminar la noticia');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+
+}
+
+function eliminaComercial(id) {
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarComercial.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'id':id
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#eliminarCom').modal('toggle');
+				loadSectionAjax('comerciales/template-comerciales-list-administracion','pintaListaComerciales');
+			}else{
+				alert('Ocurrió un error al eliminar el comercial');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+}
+
+function eliminaFiltro(id) {
+	
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarFiltro.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'id':id
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#eliminarFiltro').modal('toggle');
+				$('#tr-'+id).remove();
+			}else{
+				alert('Ocurrió un error al eliminar el filtro');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+
+}
+
+function eliminaFamiliaExtra(id) {
+	
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarFamiliaExtra.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'id':id
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#eliminarFamExtra').modal('toggle');
+				$('#tr-'+id).remove();
+			}else{
+				alert('Ocurrió un error al eliminar la familia extra');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+
+}
+
+function eliminaFamiliaSuperior(id) {
+	
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarFamiliaSuperior.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'id':id
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#eliminarFamSuperior').modal('toggle');
+				$('#tr-'+id).remove();
+			}else{
+				alert('Ocurrió un error al eliminar la familia superior');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+
+}
+
+function borrarAtributo(id) {
+	
+	$.ajax({
+		url: subdirectorio+"/modulo_administracion/ajax/eliminarAtributoFiltro.php",
+		method: 'POST',
+		data:{
+			'subdir':subdirectorio,
+			'id':id
+		}, 
+		success: function(result){
+			var data = JSON.parse(result);
+			if(!data.error){
+				$('#atributo-'+id).remove();
+			}else{
+				alert('Ocurrió un error al eliminar el atributo');
+			}
+			
+		},
+		error: function () {
+			alert("Error llamando a ajax");
+		},
+	});
+
+}
+
+function muestraSubfamiliasByFamilia(id_fam){
+	$('#listaSubfamilias').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/ajax-get-subfamilias-by-familia.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+                    'id_fam':id_fam
+                }, 
+                success: function(result){
+					var data = JSON.parse(result);
+					if(!data.error){
+                        $('#listaSubfamilias').html(data.html);
+                        $('#listaSubfamilias').fadeIn();
+                    }else{
+						alert('Ocurrió un error al obtener las subfamilias');
+					}
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+}
+
+function cargaDatosModal(id, titulo, idModal) {
+	var modal = $('#'+idModal);
+	modal.find('#tituloNotModalEliminar').text(titulo);
+	$("#eliminar").remove();
+	modal.find('.modal-footer').append( '<span class="nav-link c-pointer btn-warning" id="eliminar" onclick="eliminaNoticia(\''+id+'\');">Borrar</span>' );
+}
+
+function cargaDatosModalSlider(id, idModal) {
+	var modal = $('#'+idModal);
+	$("#eliminar").remove();
+	modal.find('.modal-footer').append( '<span class="nav-link c-pointer btn-warning" id="eliminar" onclick="eliminaSliderItem(\''+id+'\');">Borrar</span>' );
+}
+
+function cargaDatosModalCategoriaDestacada(uniqid, titulo, idModal) {
+	var modal = $('#'+idModal);
+	modal.find('#tituloCategoriaDestacadaModalEliminar').text(titulo);
+	$("#eliminar").remove();
+	modal.find('.modal-footer').append( '<span class="nav-link c-pointer btn-warning" id="eliminar" onclick="eliminaCategoriaDestacada(\''+uniqid+'\');">Borrar</span>' );
+}
+
+
+function cargaDatosModalCatalogo(uniqid, titulo, idModal) {
+	var modal = $('#'+idModal);
+	modal.find('#tituloCatModalEliminar').text(titulo);
+	$("#eliminar").remove();
+	modal.find('.modal-footer').append( '<span class="nav-link c-pointer btn-warning" id="eliminar" onclick="eliminaCatalogo(\''+uniqid+'\');">Borrar</span>' );
+}
+
+function cargaDatosModalMenu(id, titulo, idModal) {
+	var modal = $('#'+idModal);
+	modal.find('#tituloMenuModalEliminar').text(titulo);
+	$("#eliminar").remove();
+	modal.find('.modal-footer').append( '<span class="nav-link c-pointer btn-warning" id="eliminar" onclick="eliminaMenu(\''+id+'\');">Borrar</span>' );
+}
+
+function cargaDatosModalComercial(id, titulo, idModal) {
+	var modal = $('#'+idModal);
+	modal.find('#tituloComModalEliminar').text(titulo);
+	$("#eliminar").remove();
+	modal.find('.modal-footer').append( '<span class="nav-link c-pointer btn-warning" onclick="eliminaComercial(\''+id+'\');">Borrar</span>' );
+}
+
+function cargaDatosModalFiltro(id, titulo, idModal) {
+	var modal = $('#'+idModal);
+	modal.find('#tituloFiltroModalEliminar').text(titulo);
+    $("#eliminar").remove();
+	modal.find('.modal-footer').append( '<span class="nav-link c-pointer btn-warning"" id="eliminar" onclick="eliminaFiltro(\''+id+'\');">Borrar</span>' );
+}
+
+function cargaDatosModalFamExtra(id, titulo, idModal) {
+	var modal = $('#'+idModal);
+	modal.find('#tituloFamExtraModalEliminar').text(titulo);
+    $("#eliminar").remove();
+	modal.find('.modal-footer').append( '<span class="nav-link c-pointer btn-warning"" id="eliminar" onclick="eliminaFamiliaExtra(\''+id+'\');">Borrar</span>' );
+}
+
+function cargaDatosModalFamSuperior(id, titulo, idModal) {
+	var modal = $('#'+idModal);
+	modal.find('#tituloFamSuperiorModalEliminar').text(titulo);
+    $("#eliminar").remove();
+	modal.find('.modal-footer').append( '<span class="nav-link c-pointer btn-warning"" id="eliminar" onclick="eliminaFamiliaSuperior(\''+id+'\');">Borrar</span>' );
+}
+
+function loadRelAttrProd(id_filtro, id_fam, id_subfam) {
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/pintaRelacionAttrProd.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+					'id_filtro':id_filtro,
+                    'id_fam':id_fam,
+                    'id_subfam':id_subfam
+                }, 
+                success: function(result){
+                    if(result){
+                        $('#muestraContenido').html(result);
+                        $('#muestraContenido').fadeIn();
+						
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+function loadRelFamExtraProd(id_fam_extra, id_fam, id_subfam, id_familia_padre = '') {
+	if($('#muestraContenido').is(':visible')) {
+        $('#muestraContenido').fadeOut('fast', function (){
+            $.ajax({
+                url: subdirectorio+"/modulo_administracion/ajax/pintaRelacionFamExtraProd.php",
+                method: 'POST',
+                data:{
+                    'subdir':subdirectorio,
+					'id':id_fam_extra,
+                    'id_fam':id_fam,
+                    'id_subfam':id_subfam,
+					'id_familia_padre':id_familia_padre
+                }, 
+                success: function(result){
+                    if(result){
+                        $('#muestraContenido').html(result);
+                        $('#muestraContenido').fadeIn();
+						
+                    }
+                    
+                },
+                error: function () {
+                    alert("Error llamando a ajax");
+                },
+            });
+        });
+    }
+}
+
+
+function loadTinyMCE(){
+	var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	tinymce.remove();
+	tinymce.init({
+		selector: '#cuerpo',
+		plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+		language: 'es',
+		imagetools_cors_hosts: ['picsum.photos'],
+		menubar: 'file edit view insert format tools table help ',
+		toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl | code',
+		toolbar_sticky: true,
+		autosave_ask_before_unload: true,
+		autosave_interval: '30s',
+		autosave_prefix: '{path}{query}-{id}-',
+		autosave_restore_when_empty: false,
+		autosave_retention: '2m',
+		image_advtab: true,
+		relative_urls : false,
+		remove_script_host : false,
+		convert_urls : true,
+		verify_html: false,
+		importcss_append: true,
+		content_css: [
+			'https://use.fontawesome.com/releases/v5.15.1/css/all.css',
+			'default'
+		],
+		image_title: true,
+		/* enable automatic uploads of images represented by blob or data URIs*/
+		automatic_uploads: true,
+		/*
+			URL of our upload handler (for more details check: https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_url)
+			images_upload_url: 'postAcceptor.php',
+			here we add custom filepicker only to Image dialog
+		*/
+		file_picker_types: 'image',
+		/* and here's our custom image picker*/
+		file_picker_callback: function (cb, value, meta) {
+			var input = document.createElement('input');
+			input.setAttribute('type', 'file');
+			input.setAttribute('accept', 'image/*');
+
+			/*
+			Note: In modern browsers input[type="file"] is functional without
+			even adding it to the DOM, but that might not be the case in some older
+			or quirky browsers like IE, so you might want to add it to the DOM
+			just in case, and visually hide it. And do not forget do remove it
+			once you do not need it anymore.
+			*/
+
+			input.onchange = function () {
+			var file = this.files[0];
+
+			var reader = new FileReader();
+			reader.onload = function () {
+				/*
+				Note: Now we need to register the blob in TinyMCEs image blob
+				registry. In the next release this part hopefully won't be
+				necessary, as we are looking to handle it internally.
+				*/
+				var id = 'blobid' + (new Date()).getTime();
+				var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+				var base64 = reader.result.split(',')[1];
+				var blobInfo = blobCache.create(id, file, base64);
+				blobCache.add(blobInfo);
+
+				/* call the callback and populate the Title field with the file name */
+				cb(blobInfo.blobUri(), { title: file.name });
+			};
+			reader.readAsDataURL(file);
+			};
+
+			input.click();
+		},
+		templates: [],
+		template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+		template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+		height: 600,
+		image_caption: true,
+		quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+		noneditable_noneditable_class: 'mceNonEditable',
+		toolbar_mode: 'sliding',
+		contextmenu: 'link image imagetools table',
+		skin: useDarkMode ? 'oxide-dark' : 'oxide',
+		// content_css: useDarkMode ? 'dark' : 'default',
+		content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+	});
+}
+
+
